@@ -58,6 +58,7 @@ public class ListenerActivity extends AppCompatActivity {
         try {
             mRtcEngine = RtcEngine.create(this, getResources().getString(R.string.agora_app_id), mHandler);
 
+            mRtcEngine.setParameters("{\"che.audio.enable.androidlowlatencymode\": true}");
             mRtcEngine.setParameters("{\"che.audio.lowlatency\":true}");
             mRtcEngine.setParameters("{\"rtc.lowlatency\":1}");
 
