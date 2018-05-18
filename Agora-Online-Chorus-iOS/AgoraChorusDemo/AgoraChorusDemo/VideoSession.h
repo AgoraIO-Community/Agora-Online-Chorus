@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
+#import "AgoraAudioKit.framework/Headers/AgoraRtcEngineKit.h"
 
 @interface VideoSession : NSObject
 @property (assign, nonatomic) NSUInteger uid;

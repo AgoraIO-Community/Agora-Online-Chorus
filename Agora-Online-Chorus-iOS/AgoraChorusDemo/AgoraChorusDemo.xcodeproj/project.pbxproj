@@ -26,9 +26,9 @@
 		07D24D341D867644002C69BF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D24D2B1D867644002C69BF /* SettingsViewController.m */; };
 		07D24D351D867644002C69BF /* VideoViewLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D24D2D1D867644002C69BF /* VideoViewLayouter.m */; };
 		07D24D361D867644002C69BF /* VideoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D24D2F1D867644002C69BF /* VideoSession.m */; };
-		07D29C3A1E9E187D00C3583C /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D29C391E9E187D00C3583C /* AgoraRtcEngineKit.framework */; };
 		07D29C3C1E9E192A00C3583C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D29C3B1E9E192A00C3583C /* libresolv.tbd */; };
 		704E32D31FEB50A10027B6DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704E32D21FEB50A10027B6DB /* SystemConfiguration.framework */; };
+		8B9E32B920AEB72800FE8E7A /* AgoraAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9E32B820AEB72800FE8E7A /* AgoraAudioKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,9 +61,9 @@
 		07D24D2D1D867644002C69BF /* VideoViewLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewLayouter.m; sourceTree = "<group>"; };
 		07D24D2E1D867644002C69BF /* VideoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSession.h; sourceTree = "<group>"; };
 		07D24D2F1D867644002C69BF /* VideoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSession.m; sourceTree = "<group>"; };
-		07D29C391E9E187D00C3583C /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		07D29C3B1E9E192A00C3583C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		704E32D21FEB50A10027B6DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8B9E32B820AEB72800FE8E7A /* AgoraAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraAudioKit.framework; path = AgoraChorusDemo/AgoraAudioKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9E32B920AEB72800FE8E7A /* AgoraAudioKit.framework in Frameworks */,
 				704E32D31FEB50A10027B6DB /* SystemConfiguration.framework in Frameworks */,
 				07D29C3C1E9E192A00C3583C /* libresolv.tbd in Frameworks */,
-				07D29C3A1E9E187D00C3583C /* AgoraRtcEngineKit.framework in Frameworks */,
 				07D24D211D866809002C69BF /* CoreTelephony.framework in Frameworks */,
 				07D24D1F1D866802002C69BF /* CoreMedia.framework in Frameworks */,
 				07D24D1D1D8667FB002C69BF /* CoreMotion.framework in Frameworks */,
@@ -122,7 +122,6 @@
 				07D24D2D1D867644002C69BF /* VideoViewLayouter.m */,
 				07D24D281D867644002C69BF /* ProfileCell.h */,
 				07D24D291D867644002C69BF /* ProfileCell.m */,
-				07D29C391E9E187D00C3583C /* AgoraRtcEngineKit.framework */,
 				07D24CF61D866704002C69BF /* Supporting Files */,
 			);
 			path = AgoraChorusDemo;
@@ -144,6 +143,7 @@
 		07D24D131D8667DC002C69BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E32B820AEB72800FE8E7A /* AgoraAudioKit.framework */,
 				704E32D21FEB50A10027B6DB /* SystemConfiguration.framework */,
 				07D29C3B1E9E192A00C3583C /* libresolv.tbd */,
 				07D24D201D866809002C69BF /* CoreTelephony.framework */,

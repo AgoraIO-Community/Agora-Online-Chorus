@@ -47,7 +47,8 @@
         [self joinWithRole:1];
     }];
     [sheet addAction:broadcaster];
-
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
     [sheet addAction:cancel];
     [sheet popoverPresentationController].sourceView = self.popoverSourceView;
     [sheet popoverPresentationController].permittedArrowDirections = UIPopoverArrowDirectionUp;

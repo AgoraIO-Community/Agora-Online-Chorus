@@ -34,8 +34,8 @@
 		8B8E8CF6204E7C0E00150F8A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E8CF5204E7C0A00150F8A /* Accelerate.framework */; };
 		8B8E8CF8204E7C1A00150F8A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E8CF7204E7C1600150F8A /* QuartzCore.framework */; };
 		8B8E8CFA204E7C2A00150F8A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E8CF9204E7C2500150F8A /* OpenGLES.framework */; };
-		8B8E8CFF204F8F4B00150F8A /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E8CFE204F8F4A00150F8A /* AgoraRtcEngineKit.framework */; };
 		8B8E8D01204F906400150F8A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8E8D00204F905B00150F8A /* CoreTelephony.framework */; };
+		8B9E32BB20AEB7D300FE8E7A /* AgoraAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9E32BA20AEB7D300FE8E7A /* AgoraAudioKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,8 +70,8 @@
 		8B8E8CF5204E7C0A00150F8A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8B8E8CF7204E7C1600150F8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8B8E8CF9204E7C2500150F8A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		8B8E8CFE204F8F4A00150F8A /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = AgoraChooseSongDemo/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		8B8E8D00204F905B00150F8A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8B9E32BA20AEB7D300FE8E7A /* AgoraAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraAudioKit.framework; path = AgoraChooseSongDemo/AgoraAudioKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9E32BB20AEB7D300FE8E7A /* AgoraAudioKit.framework in Frameworks */,
 				8B8E8D01204F906400150F8A /* CoreTelephony.framework in Frameworks */,
-				8B8E8CFF204F8F4B00150F8A /* AgoraRtcEngineKit.framework in Frameworks */,
 				8B8E8CFA204E7C2A00150F8A /* OpenGLES.framework in Frameworks */,
 				8B8E8CF8204E7C1A00150F8A /* QuartzCore.framework in Frameworks */,
 				8B8E8CF6204E7C0E00150F8A /* Accelerate.framework in Frameworks */,
@@ -144,8 +144,8 @@
 		8B8E8C1A204E619300150F8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E32BA20AEB7D300FE8E7A /* AgoraAudioKit.framework */,
 				8B8E8D00204F905B00150F8A /* CoreTelephony.framework */,
-				8B8E8CFE204F8F4A00150F8A /* AgoraRtcEngineKit.framework */,
 				8B8E8CF9204E7C2500150F8A /* OpenGLES.framework */,
 				8B8E8CF7204E7C1600150F8A /* QuartzCore.framework */,
 				8B8E8CF5204E7C0A00150F8A /* Accelerate.framework */,
