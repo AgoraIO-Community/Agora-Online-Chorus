@@ -1,5 +1,6 @@
 package io.agora.usecase.chorus;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -23,10 +24,9 @@ public class GuideActivity extends AppCompatActivity {
 
         mEtChannelName = findViewById(R.id.et_channel_name);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
-            requestPermissions(new String[]{"android.permission.CAMERA",
-                    "android.permission.RECORD_AUDIO",
-                    "android.permission.RECORD_AUDIO",
-                    "android.permission.WRITE_EXTERNAL_STORAGE"}, 200);
+            requestPermissions(new String[]{Manifest.permission.CAMERA,
+                    Manifest.permission.RECORD_AUDIO,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
         } else {
             isLoadSuccess = true;
         }
@@ -40,26 +40,26 @@ public class GuideActivity extends AppCompatActivity {
     }
 
     public void onBroadcasterClicked(View v) {
-        if (TextUtils.isEmpty(mEtChannelName.getText())){
+        if (TextUtils.isEmpty(mEtChannelName.getText())) {
             Toast.makeText(this, "please input channel name", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (isLoadSuccess) {
-            Intent i = new Intent(GuideActivity.this, BroadCasterActivity.class);
+            Intent i = new Intent(GuideActivity.this, SongsAccompanimentActivity.class);
             i.putExtra("CHANNEL_NAME", mEtChannelName.getText().toString());
             startActivity(i);
         }
     }
 
     public void onListenerClicked(View v) {
-        if (TextUtils.isEmpty(mEtChannelName.getText())){
+        if (TextUtils.isEmpty(mEtChannelName.getText())) {
             Toast.makeText(this, "please input channel name", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (isLoadSuccess) {
-            Intent i = new Intent(GuideActivity.this, ListenerActivity.class);
+            Intent i = new Intent(GuideActivity.this, SingerActivity.class);
             i.putExtra("CHANNEL_NAME", mEtChannelName.getText().toString());
             startActivity(i);
         }

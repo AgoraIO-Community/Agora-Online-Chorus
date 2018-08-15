@@ -1,14 +1,18 @@
 package io.agora.usecase.chorus;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.io.File;
+
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 
-public class BroadCasterActivity extends AppCompatActivity {
+public class SongsAccompanimentActivity extends AppCompatActivity {
 
     private RtcEngine mRtcEngine;
     private TextView mTvDisplay;
@@ -22,7 +26,7 @@ public class BroadCasterActivity extends AppCompatActivity {
         public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
             super.onJoinChannelSuccess(channel, uid, elapsed);
             mIsJoinSuccess = true;
-            sendMessage("onJoinChannelSuccess:" + uid);
+            sendMessage("onJoinChannelSuccess: " + (uid & 0xFFFFFFFFL));
         }
 
         @Override
@@ -32,20 +36,34 @@ public class BroadCasterActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onUserJoined(int uid, int elapsed) {
+            super.onUserJoined(uid, elapsed);
+            sendMessage("onUserJoined: " + (uid & 0xFFFFFFFFL));
+        }
+
+        @Override
+        public void onUserOffline(int uid, int reason) {
+            super.onUserOffline(uid, reason);
+            sendMessage("onUserOffline: " + (uid & 0xFFFFFFFFL));
+        }
+
+        @Override
         public void onError(int err) {
             super.onError(err);
+            sendMessage("onError: " + err);
         }
 
         @Override
         public void onWarning(int warn) {
             super.onWarning(warn);
+            sendMessage("onWarning: " + warn);
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_broadcaster);
+        setContentView(R.layout.activity_songs_accompaniment);
 
         mChannelName = getIntent().getStringExtra("CHANNEL_NAME");
 
@@ -102,11 +120,13 @@ public class BroadCasterActivity extends AppCompatActivity {
 
         try {
             mRtcEngine = RtcEngine.create(this, getResources().getString(R.string.agora_app_id), mHandler);
+            mRtcEngine.setLogFile(Environment.getExternalStorageDirectory()
+                    + File.separator + "agora-chorus-broadcaster-song.log");
 
             mRtcEngine.joinChannel(null, mChannelName, "", 0);
 
             mRtcEngine.muteAllRemoteAudioStreams(true);
-            sendMessage("join channel:" + mChannelName);
+            sendMessage("join channel: " + mChannelName);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,13 +1,16 @@
 package io.agora.usecase.chorus;
 
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.io.File;
+
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 
-public class ListenerActivity extends AppCompatActivity {
+public class SingerActivity extends AppCompatActivity {
 
     private RtcEngine mRtcEngine;
     private TextView mTvDisplay;
@@ -16,47 +19,51 @@ public class ListenerActivity extends AppCompatActivity {
         @Override
         public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
             super.onJoinChannelSuccess(channel, uid, elapsed);
-            sendMessage("onJoinChannelSuccess:" + uid);
+            sendMessage("onJoinChannelSuccess: " + (uid & 0xFFFFFFFFL));
         }
 
         @Override
         public void onUserJoined(int uid, int elapsed) {
             super.onUserJoined(uid, elapsed);
-            sendMessage("onUserJoined:" + uid);
+            sendMessage("onUserJoined: " + (uid & 0xFFFFFFFFL));
         }
 
         @Override
         public void onUserOffline(int uid, int reason) {
             super.onUserOffline(uid, reason);
-            sendMessage("onUserOffline:" + uid);
+            sendMessage("onUserOffline: " + (uid & 0xFFFFFFFFL));
         }
 
         @Override
         public void onError(int err) {
             super.onError(err);
-            sendMessage("onError:" + err);
+            sendMessage("onError: " + err);
         }
 
         @Override
         public void onWarning(int warn) {
             super.onWarning(warn);
+            sendMessage("onWarning: " + warn);
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listener);
+        setContentView(R.layout.activity_singer);
 
         mChannelName = getIntent().getStringExtra("CHANNEL_NAME");
 
         init();
     }
 
-    public void init(){
+    public void init() {
         mTvDisplay = findViewById(R.id.tv_listener_display);
 
         try {
             mRtcEngine = RtcEngine.create(this, getResources().getString(R.string.agora_app_id), mHandler);
+            mRtcEngine.setLogFile(Environment.getExternalStorageDirectory()
+                    + File.separator + "agora-chorus-broadcaster-singer.log");
 
             mRtcEngine.setParameters("{\"che.audio.enable.androidlowlatencymode\": true}");
             mRtcEngine.setParameters("{\"che.audio.lowlatency\":true}");
@@ -64,7 +71,7 @@ public class ListenerActivity extends AppCompatActivity {
 
             mRtcEngine.joinChannel(null, mChannelName, "", 0);
 
-            sendMessage("join channel:" + mChannelName);
+            sendMessage("join channel: " + mChannelName);
         } catch (Exception e) {
             e.printStackTrace();
         }
