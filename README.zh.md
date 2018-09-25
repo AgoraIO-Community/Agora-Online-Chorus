@@ -268,7 +268,7 @@ Other Language: [English](README.md)
 
 ### 加入声网频道实现语音通话
 
-首先申请 App ID，详见 :ref:`app_id_native`。
+首先申请 App ID，详见 [获取 App ID](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/Agora%20Platform/token?platform=All%20Platforms) 。
 
 #### 音乐播放端
 
@@ -319,14 +319,19 @@ agoraKit.setParameters("{\"rtc.lowlatency\":1}")
 
 ### 耳返接口:
 
+Android:
+
 * 启用耳返功能, 详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 * 设置耳返音量，相见 [setInEarMonitoringVolume]()(https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android)  。
 
+iOS:
+
+* 启用耳返功能, 详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
+* 设置耳返音量，相见 [setInEarMonitoringVolume]()(https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS)  。
+
+
 ### 调整伴奏音量：
 
-* 启用耳返功能，详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
-* 设置耳返音量，相见 [setInEarMonitoringVolume()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
+* Android: 音乐播放端直接调整音量，详见 [adjustAudioMixingVolume()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
-### 调整伴奏音量：
-
-音乐播放端直接调整音量，详见 [adjustAudioMixingVolume()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
+* iOS: 音乐播放端直接调整音量，详见 [adjustAudioMixingVolume()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
