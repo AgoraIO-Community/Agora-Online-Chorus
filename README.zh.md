@@ -35,6 +35,11 @@ Other Language: [English](README.md)
 
 ## 集成方法
 
+集成方法章节主要包含:
+
+* 集成 SDK
+* 加入声网频道实现音频通话
+
 ### 集成 SDK
 
 #### 步骤 1：准备环境
@@ -51,7 +56,7 @@ Other Language: [English](README.md)
 
     * App 要求 Android 4.1 或以上设备
 
-3. 请确保在使用 Agora 相关功能及服务前，已打开特定端口，详见 :doc:`../Agora Platform/firewall`。
+3. 请确保在使用 Agora 相关功能及服务前，已打开特定端口，详见 [防火墙说明](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/Agora%20Platform/firewall?platform=All%20Platforms) 。
 
 
 #### 步骤 2: 添加 SDK
@@ -118,11 +123,13 @@ Other Language: [English](README.md)
 
 ### 加入声网频道实现音频通话
 
-首先申请 App ID，详见 :ref:`app_id_native`。
+首先申请 App ID，详见 [获取 App ID](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/Agora%20Platform/token?platform=All%20Platforms) 。
 
 #### 音乐播放端
 
-1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
+以下示例以 Android 为例，iOS 可以参考 [iOS API](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 了解如何调用对应的 API 方法:
+
+1. 创建 RtcEngine 对象，并填入 App ID，详见 [create()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android)。
 
  ```
 
@@ -131,12 +138,12 @@ Other Language: [English](README.md)
                                                 IRtcEngineEventHandler handler);
  ```
 
-2. 设置频道为通信模式，详见 :ref:`communication_android_setChannelProfile`。
+2. 设置频道为通信模式，详见 [setChannelProfile()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
    public abstract int setChannelProfile(int profile);
  ```
-3. 创建并加入频道, 详见 :ref:`communication_android_joinchannel`。
+3. 创建并加入频道, 详见 [joinchannel()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -146,7 +153,7 @@ Other Language: [English](README.md)
                                    int optionalUid);
  ```
 
-4. 开始播放伴奏，详见 :ref:`communication_android_startAudioMixing`
+4. 开始播放伴奏，详见 [startAudioMixing()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -156,7 +163,7 @@ Other Language: [English](README.md)
                                         int cycle);
  ```
 
-5. 离开频道 (leaveChannel)，详见 :ref:`communication_android_leaveChannel`
+5. 离开频道 (leaveChannel)，详见 [leaveChannel()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -165,11 +172,11 @@ Other Language: [English](README.md)
  ```
 **注意:** 伴奏音量应小于人声。
 
-6. 离开频道，详见 :ref:`communication_android_leaveChannel`。
+6. 离开频道，详见 [leaveChannel()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
 #### 歌手端
 
-1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
+1. 创建 RtcEngine 对象，并填入 App ID，详见 [create()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -178,7 +185,7 @@ Other Language: [English](README.md)
                                                 IRtcEngineEventHandler handler);
  ```
 
-2. 设置频道为通信模式，详见 :ref:`communication_android_setChannelProfile`。
+2. 设置频道为通信模式，详见 [setChannelProfile()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -198,7 +205,7 @@ Other Language: [English](README.md)
    mRtcEngine.setParameters("{\"che.audio.neteq.mindelay\":0}");
 
  ```
-4. 创建并加入频道, 详见 :ref:`communication_android_joinchannel`。
+4. 创建并加入频道, 详见 [joinchannel()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -207,7 +214,7 @@ Other Language: [English](README.md)
                                    String optionalInfo,
                                    int optionalUid);
  ```
-5. 离开频道 (leaveChannel)，详见 :ref:`communication_android_leaveChannel`
+5. 离开频道 (leaveChannel)，详见 [leaveChannel()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
  ```
 
@@ -230,14 +237,14 @@ Other Language: [English](README.md)
 
 ### 耳返接口:
 
-- 启用耳返功能, 详见 :ref:`enableInEarMonitoring_live_Android` 。
-- 设置耳返音量，相见 :ref:`setInEarMonitoringVolume_live_Android`  。
+* 启用耳返功能, 详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
+* 设置耳返音量，相见 [setInEarMonitoringVolume]()(https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android)  。
 
 ### 调整伴奏音量：
 
-- 启用耳返功能，详见 :ref:`enableInEarMonitoring_live_Android` 。
-- 设置耳返音量，相见 :ref:`setInEarMonitoringVolume_live_Android` 。
+* 启用耳返功能，详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
+* 设置耳返音量，相见 [setInEarMonitoringVolume()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
 
 ### 调整伴奏音量：
 
-音乐播放端直接调整音量，详见 :ref:`communication_android_adjustAudioMixingVolume`。
+音乐播放端直接调整音量，详见 [adjustAudioMixingVolume()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
