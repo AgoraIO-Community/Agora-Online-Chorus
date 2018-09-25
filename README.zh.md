@@ -129,45 +129,45 @@ Other Language: [English](README.md)
 
 1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
 
-```
+ ```
 
    public static synchronized RtcEngine create(Context context,
                                                 String appId,
                                                 IRtcEngineEventHandler handler);
-```
+ ```
 
 2. 设置频道为通信模式，详见 :ref:`communication_android_setChannelProfile`。
 
-```
+ ```
    public abstract int setChannelProfile(int profile);
-```
+ ```
 3. 创建并加入频道, 详见 :ref:`communication_android_joinchannel`。
 
-```
+ ```
 
    public abstract int joinChannel(String token,
                                    String channelName,
                                    String optionalInfo,
                                    int optionalUid);
-```
+ ```
 
 4. 开始播放伴奏，详见 :ref:`communication_android_startAudioMixing`
 
-```
+ ```
 
    public abstract int startAudioMixing(String filePath,
                                         boolean loopback,
                                         boolean replace,
                                         int cycle);
-```
+ ```
 
 5. 离开频道 (leaveChannel)，详见 :ref:`communication_android_leaveChannel`
 
-```
+ ```
 
    public abstract int leaveChannel();
 
-```
+ ```
 **注意:** 伴奏音量应小于人声。
 
 6. 离开频道，详见 :ref:`communication_android_leaveChannel`。
@@ -176,23 +176,23 @@ Other Language: [English](README.md)
 
 1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
 
-```
+ ```
 
    public static synchronized RtcEngine create(Context context,
                                                 String appId,
                                                 IRtcEngineEventHandler handler);
-```
+ ```
 
 2. 设置频道为通信模式，详见 :ref:`communication_android_setChannelProfile`。
 
-```
+ ```
 
    public abstract int setChannelProfile(int profile);
 
-```
+ ```
 3. 为歌手端设置低延时策略：
 
-```
+ ```
 
    mRtcEngine.setParameters("{\"che.audio.enable.androidlowlatencymode\": true}");
    mRtcEngine.setParameters("{\"che.audio.enable.androidlowlatencymode\": true}");
@@ -202,23 +202,23 @@ Other Language: [English](README.md)
    mRtcEngine.setParameters("{\"che.audio.neteq.maxdelay\":20}");
    mRtcEngine.setParameters("{\"che.audio.neteq.mindelay\":0}");
 
-```
+ ```
 4. 创建并加入频道, 详见 :ref:`communication_android_joinchannel`。
 
-```
+ ```
 
    public abstract int joinChannel(String token,
                                    String channelName,
                                    String optionalInfo,
                                    int optionalUid);
-```
+ ```
 5. 离开频道 (leaveChannel)，详见 :ref:`communication_android_leaveChannel`
 
-```
+ ```
 
    public abstract int leaveChannel();
 
-```
+ ```
 
 ## 常见问题
 
