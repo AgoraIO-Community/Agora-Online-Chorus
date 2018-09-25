@@ -322,12 +322,12 @@ agoraKit.setParameters("{\"rtc.lowlatency\":1}")
 Android:
 
 * 启用耳返功能, 详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android) 。
-* 设置耳返音量，相见 [setInEarMonitoringVolume]()(https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android)  。
+* 设置耳返音量，相见 [setInEarMonitoringVolume](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android)  。
 
 iOS:
 
 * 启用耳返功能, 详见 [enableInEarMonitoring()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
-* 设置耳返音量，相见 [setInEarMonitoringVolume]()(https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS)  。
+* 设置耳返音量，相见 [setInEarMonitoringVolume](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS)  。
 
 
 ### 调整伴奏音量：
