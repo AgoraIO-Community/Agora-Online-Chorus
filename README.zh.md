@@ -20,7 +20,7 @@ Other Language: [English](README.md)
 
 下图为在线合唱场景的实现架构图：
 
-   ![chorus](Image/online_chorus.jpeg)  
+   ![chorus](Image/online_chorus.jpg)  
 
 
 在这个架构图中：
