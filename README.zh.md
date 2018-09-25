@@ -94,8 +94,7 @@ Other Language: [English](README.md)
 
 为保证 SDK 正常运行，程序部署时需在 *AndroidManisfest.xml* 文件中加入以下许可：
 
-.. code-block:: python
-
+```
    <uses-permission android:name="android.permission.INTERNET" />
 
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -103,7 +102,7 @@ Other Language: [English](README.md)
    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+```
 
 #### 步骤 5：同步项目文件
 
@@ -130,42 +129,45 @@ Other Language: [English](README.md)
 
 1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
 
-.. code-block:: java
+```
 
    public static synchronized RtcEngine create(Context context,
                                                 String appId,
                                                 IRtcEngineEventHandler handler);
+```
 
 2. 设置频道为通信模式，详见 :ref:`communication_android_setChannelProfile`。
 
-.. code-block:: java
-
+```
    public abstract int setChannelProfile(int profile);
-
+```
 3. 创建并加入频道, 详见 :ref:`communication_android_joinchannel`。
 
-.. code-block:: java
+```
 
    public abstract int joinChannel(String token,
                                    String channelName,
                                    String optionalInfo,
                                    int optionalUid);
+```
 
 4. 开始播放伴奏，详见 :ref:`communication_android_startAudioMixing`
 
-.. code-block:: java
+```
 
    public abstract int startAudioMixing(String filePath,
                                         boolean loopback,
                                         boolean replace,
                                         int cycle);
+```
 
 5. 离开频道 (leaveChannel)，详见 :ref:`communication_android_leaveChannel`
 
-.. code-block:: java
+```
 
    public abstract int leaveChannel();
 
+```
 **注意:** 伴奏音量应小于人声。
 
 6. 离开频道，详见 :ref:`communication_android_leaveChannel`。
@@ -174,21 +176,23 @@ Other Language: [English](README.md)
 
 1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
 
-.. code-block:: java
+```
 
    public static synchronized RtcEngine create(Context context,
                                                 String appId,
                                                 IRtcEngineEventHandler handler);
+```
 
 2. 设置频道为通信模式，详见 :ref:`communication_android_setChannelProfile`。
 
-.. code-block:: java
+```
 
    public abstract int setChannelProfile(int profile);
 
+```
 3. 为歌手端设置低延时策略：
 
-.. code-block:: java
+```
 
    mRtcEngine.setParameters("{\"che.audio.enable.androidlowlatencymode\": true}");
    mRtcEngine.setParameters("{\"che.audio.enable.androidlowlatencymode\": true}");
@@ -198,22 +202,23 @@ Other Language: [English](README.md)
    mRtcEngine.setParameters("{\"che.audio.neteq.maxdelay\":20}");
    mRtcEngine.setParameters("{\"che.audio.neteq.mindelay\":0}");
 
+```
 4. 创建并加入频道, 详见 :ref:`communication_android_joinchannel`。
 
-.. code-block:: java
+```
 
    public abstract int joinChannel(String token,
                                    String channelName,
                                    String optionalInfo,
                                    int optionalUid);
-
+```
 5. 离开频道 (leaveChannel)，详见 :ref:`communication_android_leaveChannel`
 
-.. code-block:: java
+```
 
    public abstract int leaveChannel();
 
-
+```
 
 ## 常见问题
 
