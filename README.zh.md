@@ -20,8 +20,8 @@ Other Language: [English](README.md)
 
 下图为在线合唱场景的实现架构图：
 
-.. image:: online_chorus.jpeg
-   :scale: 50%
+   ![chorus](Image/online_chorus.jpeg)  
+
 
 在这个架构图中：
 
