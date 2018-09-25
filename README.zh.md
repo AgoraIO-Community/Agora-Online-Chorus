@@ -6,7 +6,8 @@ Other Language: [English](README.md)
 
 * 场景描述
 * 实现方案
-* 集成方法
+* 集成方法 - Android
+* 集成方法 - iOS
 * 常见问题
 * 进阶指南
 
@@ -33,7 +34,7 @@ Other Language: [English](README.md)
 声网已在 GitHub 提供了 Android 和 iOS 平台的 [实现代码](https://github.com/AgoraIO-Community/Agora-Online-Chorus/tree/master/Agora-Online-Chorus) 。
 
 
-## 集成方法
+## 集成方法 - Android
 
 集成方法章节主要包含:
 
@@ -221,6 +222,96 @@ Other Language: [English](README.md)
    public abstract int leaveChannel();
 
  ```
+
+## 集成方法 - iOS
+
+### 集成 SDK
+
+#### 步骤 1: 准备环境
+
+1. 联系声网商务下载 iOS 平台合唱 SDK。详情请洽 sales@agora.io ，电话 4006326626。
+
+2. 请确保满足以下开发环境要求:
+
+    * Apple Xcode 9.0 或以上版本
+    * iOS 10.0 或以上版本
+    * 支持语音功能的真机设备
+
+#### 步骤 2: 添加 Agora SDK
+
+1. 打开 Xcode 项目，选择 **File** > **Add Files to ...**
+
+2. 在弹出的文件选择框中选择第 1 步解压出的 AgoraRtcEngineKit.framework 文件。
+
+.. image:: add_files.png
+            :scale: 60%
+
+3. 按需勾选 **Copy items if needed**。
+
+4. 注意在下方 **Add to targets** 中勾选对应的 target。
+
+5. 点击 **Add** 按钮
+
+.. image:: add_targets.png
+            :scale: 35%
+
+
+#### 步骤 3: 访问库
+
+在 viewController.h 文件里，添加 #import <AgoraAudioKit/AgoraRtcEngineKit.h>, 即可开始使用 iOS 平台的合唱 SDK。
+
+#### 步骤 4: 设置 App 的音频设备使用权限
+
+使用 Agora SDK 前，App 需要麦克风授权:
+
+在 *info.plist* 进行授权操作: 添加 Privacy - Microphone Usage Description 字段
+
+
+
+#### 步骤 5: 其他设置
+
+设置后台模式。在 **Background Modes** 里选择 **Audio, AirPlay, and Picture in Picture** 。
+
+### 加入声网频道实现语音通话
+
+首先申请 App ID，详见 :ref:`app_id_native`。
+
+#### 音乐播放端
+
+1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_ios_sharedEngineWithappId`。
+
+2. 设置频道为 **通信模式**，详见 :ref:`communication_ios_setChannelProfile`。
+
+3. 创建并加入频道, 详见 :ref:`communication_ios_joinChannelByToken`。
+
+4. 静音所有远端音频，详见 :ref:`communication_android_muteAllRemoteAudioStreams`。
+
+5. 开始播放伴奏，详见 :ref:`startAudioMixing_audio_ios`
+
+.. note::
+
+  伴奏音量应小于人声。
+
+6. 离开频道，详见 :ref:`communication_ios_leaveChannel`
+
+
+#### 歌手端
+
+1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_ios_sharedEngineWithappId`。
+
+2. 设置频道为 **通信模式**，详见 :ref:`communication_ios_setChannelProfile`。
+
+3. 为歌手端设置低延时策略：
+
+.. code-block:: python
+
+   agoraKit.setParameters("{\"che.audio.lowlatency\":true}")
+   agoraKit.setParameters("{\"rtc.lowlatency\":1}")
+
+4. 创建并加入频道, 详见 :ref:`communication_ios_joinChannelByToken`。
+
+5. 离开频道 (leaveChannel)，详见 :ref:`communication_ios_leaveChannel`
+
 
 ## 常见问题
 
