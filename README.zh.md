@@ -127,8 +127,6 @@ Other Language: [English](README.md)
 
 #### 音乐播放端
 
-以下示例以 Android 为例，iOS 可以参考 [iOS API](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 了解如何调用对应的 API 方法:
-
 1. 创建 RtcEngine 对象，并填入 App ID，详见 [create()](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android)。
 
  ```
@@ -240,10 +238,10 @@ Other Language: [English](README.md)
 
 1. 打开 Xcode 项目，选择 **File** > **Add Files to ...**
 
-2. 在弹出的文件选择框中选择第 1 步解压出的 AgoraRtcEngineKit.framework 文件。
+2. 在弹出的文件选择框中选择第 1 步解压出的 *AgoraRtcEngineKit.framework* 文件。
 
-.. image:: add_files.png
-            :scale: 60%
+   ![add_files](Image/add_files.png)  
+
 
 3. 按需勾选 **Copy items if needed**。
 
@@ -251,21 +249,18 @@ Other Language: [English](README.md)
 
 5. 点击 **Add** 按钮
 
-.. image:: add_targets.png
-            :scale: 35%
+   ![add_targets](Image/add_targets.png)  
 
 
 #### 步骤 3: 访问库
 
-在 viewController.h 文件里，添加 #import <AgoraAudioKit/AgoraRtcEngineKit.h>, 即可开始使用 iOS 平台的合唱 SDK。
+在 viewController.h 文件里，添加 *#import <AgoraAudioKit/AgoraRtcEngineKit.h>* , 即可开始使用 iOS 平台的合唱 SDK。
 
 #### 步骤 4: 设置 App 的音频设备使用权限
 
 使用 Agora SDK 前，App 需要麦克风授权:
 
-在 *info.plist* 进行授权操作: 添加 Privacy - Microphone Usage Description 字段
-
-
+在 *info.plist* 进行授权操作: 添加 **Privacy - Microphone Usage Description** 字段
 
 #### 步骤 5: 其他设置
 
@@ -277,39 +272,36 @@ Other Language: [English](README.md)
 
 #### 音乐播放端
 
-1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_ios_sharedEngineWithappId`。
+1. 创建 RtcEngine 对象，并填入 App ID，详见 [sharedEngineWithappId](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-2. 设置频道为 **通信模式**，详见 :ref:`communication_ios_setChannelProfile`。
+2. 设置频道为 **通信模式**，详见 [setChannelProfile](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-3. 创建并加入频道, 详见 :ref:`communication_ios_joinChannelByToken`。
+3. 创建并加入频道, 详见 [joinChannelByToken](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-4. 静音所有远端音频，详见 :ref:`communication_android_muteAllRemoteAudioStreams`。
+4. 静音所有远端音频，详见 [muteAllRemoteAudioStreams](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-5. 开始播放伴奏，详见 :ref:`startAudioMixing_audio_ios`
+5. 开始播放伴奏，详见 [startAudioMixing](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-.. note::
+**注意:** 伴奏音量应小于人声。
 
-  伴奏音量应小于人声。
-
-6. 离开频道，详见 :ref:`communication_ios_leaveChannel`
+6. 离开频道，详见 [leaveChannel](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
 
 #### 歌手端
 
-1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_ios_sharedEngineWithappId`。
+1. 创建 RtcEngine 对象，并填入 App ID，详见 [sharedEngineWithappId](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-2. 设置频道为 **通信模式**，详见 :ref:`communication_ios_setChannelProfile`。
+2. 设置频道为 **通信模式**，详见 [setChannelProfile](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
 3. 为歌手端设置低延时策略：
 
-.. code-block:: python
+```
+agoraKit.setParameters("{\"che.audio.lowlatency\":true}")
+agoraKit.setParameters("{\"rtc.lowlatency\":1}")
+```
+4. 创建并加入频道, 详见 [joinChannelByToken](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
-   agoraKit.setParameters("{\"che.audio.lowlatency\":true}")
-   agoraKit.setParameters("{\"rtc.lowlatency\":1}")
-
-4. 创建并加入频道, 详见 :ref:`communication_ios_joinChannelByToken`。
-
-5. 离开频道 (leaveChannel)，详见 :ref:`communication_ios_leaveChannel`
+5. 离开频道 (leaveChannel)，详见 [leaveChannel](https://docs.agora.io/cn/2.4/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS) 。
 
 
 ## 常见问题
