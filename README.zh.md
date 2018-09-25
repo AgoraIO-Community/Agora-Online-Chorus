@@ -1,18 +1,22 @@
 # 在线合唱：从方案到集成
 
 Other Language: [English](README.md)
+
 声网 SDK 提供在线合唱解决方案，主要包括:
 
 * 场景描述
 * 实现方案
 * 集成方法
 * 常见问题
+* 进阶指南
 
 ## 场景描述
 
 * 发起人点歌，并发起合唱；
 * 音乐播放端通过网络同时发送给多位合唱者；
 * 合唱者在线合唱，并能同步听到彼此的声音；
+
+# 实现方案
 
 下图为在线合唱场景的实现架构图：
 
@@ -21,22 +25,19 @@ Other Language: [English](README.md)
 
 在这个架构图中：
 
-- 音乐播放器端加入 SD-RTN；
-- 伴奏音乐通过 SD-RTN 实时同步发送给合唱者 A 和 B；
-- 合唱者 A 和 B 会同时听到伴奏，合着伴奏开始演唱；
-- SD-RTN 会实时地将 A 的歌声传给 B 端，同样的 B 的歌声也会被实时地传输到 A 端；
+* 音乐播放器端加入 SD-RTN；
+* 伴奏音乐通过 SD-RTN 实时同步发送给合唱者 A 和 B；
+* 合唱者 A 和 B 会同时听到伴奏，合着伴奏开始演唱；
+* SD-RTN 会实时地将 A 的歌声传给 B 端，同样的 B 的歌声也会被实时地传输到 A 端；
 
-声网已在 GitHub 提供了 Android 平台的 `实现代码 <https://github.com/AgoraIO-Community/Agora-Online-Chorus/tree/master/Agora-Online-Chorus-Android>`_
+声网已在 GitHub 提供了 Android 平台的 [实现代码](https://github.com/AgoraIO-Community/Agora-Online-Chorus/tree/master/Agora-Online-Chorus-Android) 。
 
 
-集成方法
-==========================
+## 集成方法
 
-集成 SDK
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 集成 SDK
 
-步骤 1：准备环境
----------------
+#### 步骤 1：准备环境
 
 1. 联系声网商务下载 Android 平台合唱 SDK。详情请洽 sales@agora.io ，电话 4006326626。
 
@@ -53,8 +54,7 @@ Other Language: [English](README.md)
 3. 请确保在使用 Agora 相关功能及服务前，已打开特定端口，详见 :doc:`../Agora Platform/firewall`。
 
 
-步骤 2: 添加 SDK
-------------------
+#### 步骤 2: 添加 SDK
 
 1. 将下载的软件包中 *libs* 文件夹下的库根据实际需求拷贝到您项目对应的文件夹里。
 
@@ -66,12 +66,7 @@ Other Language: [English](README.md)
 
    * arm64-v8a
 
-..   * include
-
-.. note::
-
-      当你将所需库复制到正确路径的 *libs* 文件夹里时，如果该路径包含中文，则无法成功编译，报错中会提到 ASCII 码。
-
+**注意:** 当你将所需库复制到正确路径的 *libs* 文件夹里时，如果该路径包含中文，则无法成功编译，报错中会提到 ASCII 码。
 
 2. 请根据您项目的 *build.gradle* 文件里的设置，将上述库放入正确路径的 *libs* 文件夹下。例如:
 
@@ -83,8 +78,7 @@ Other Language: [English](README.md)
 .. image:: android_so.png
    :scale: 45%
 
-步骤 3: 配置 NDK
--------------------
+#### 步骤 3: 配置 NDK
 
 如果出现以下问题，请配置 NDK:
 
@@ -96,8 +90,7 @@ Other Language: [English](README.md)
 .. image:: android7.png
    :scale: 40%
 
-步骤 4: 添加权限
----------------------
+#### 步骤 4: 添加权限
 
 为保证 SDK 正常运行，程序部署时需在 *AndroidManisfest.xml* 文件中加入以下许可：
 
@@ -112,8 +105,7 @@ Other Language: [English](README.md)
    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-步骤 5：同步项目文件
-----------------------
+#### 步骤 5：同步项目文件
 
 点击 **Sync Project With Gradle Files** ，直到同步完成。
 
@@ -121,8 +113,7 @@ Other Language: [English](README.md)
    :scale: 60%
 
 
-步骤 6：混淆代码
--------------------
+#### 步骤 6：混淆代码
 
 当您在写混淆代码时，请添加以下代码:
 
@@ -131,14 +122,11 @@ Other Language: [English](README.md)
 
 
 
-
-加入声网频道实现音频通话
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 加入声网频道实现音频通话
 
 首先申请 App ID，详见 :ref:`app_id_native`。
 
-音乐播放端
------------------
+#### 音乐播放端
 
 1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
 
@@ -178,14 +166,11 @@ Other Language: [English](README.md)
 
    public abstract int leaveChannel();
 
-.. note::
-
-  伴奏音量应小于人声。
+**注意:** 伴奏音量应小于人声。
 
 6. 离开频道，详见 :ref:`communication_android_leaveChannel`。
 
-歌手端
-------------------
+#### 歌手端
 
 1. 创建 RtcEngine 对象，并填入 App ID，详见 :ref:`communication_android_create`。
 
@@ -230,45 +215,29 @@ Other Language: [English](README.md)
 
 
 
-常见问题
-==========================
+## 常见问题
 
-弱网情况下人声有卡顿
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 弱网情况下人声有卡顿
 
 为了保证合唱的实时性，歌手客户端采用了低延时策略，弱网下丢包率会相应增加。
 
-出现回声
-~~~~~~~~~~~~~~~~~~
+#### 出现回声
 
 歌手需要带耳机合唱，不能通过外放。
 
 
-进阶
-==========================
+## 进阶指南
 
-耳返接口:
-~~~~~~~~~~~~~~~~~~
+### 耳返接口:
 
 - 启用耳返功能, 详见 :ref:`enableInEarMonitoring_live_Android` 。
 - 设置耳返音量，相见 :ref:`setInEarMonitoringVolume_live_Android`  。
 
-调整伴奏音量：
-~~~~~~~~~~~~~~~~~~~~~
+### 调整伴奏音量：
 
 - 启用耳返功能，详见 :ref:`enableInEarMonitoring_live_Android` 。
 - 设置耳返音量，相见 :ref:`setInEarMonitoringVolume_live_Android` 。
 
-调整伴奏音量：
-~~~~~~~~~~~~~~~~~~~~~
+### 调整伴奏音量：
 
 音乐播放端直接调整音量，详见 :ref:`communication_android_adjustAudioMixingVolume`。
-
-.. 开通 P2P 功能：
-.. ~~~~~~~~~~~~~~~~~~~~~~
-
-.. P2P 功能可以提供更低的延时。详情请洽声网销售：sales@agora.io ，电话 4006326626。
-
-.. 将摄像头数据和 MV 视频帧混合
-.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. 通过裸数据回调实现，和合图推流类似
