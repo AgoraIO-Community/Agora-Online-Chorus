@@ -30,7 +30,7 @@ Other Language: [English](README.md)
 * 合唱者 A 和 B 会同时听到伴奏，合着伴奏开始演唱；
 * SD-RTN 会实时地将 A 的歌声传给 B 端，同样的 B 的歌声也会被实时地传输到 A 端；
 
-声网已在 GitHub 提供了 Android 平台的 [实现代码](https://github.com/AgoraIO-Community/Agora-Online-Chorus/tree/master/Agora-Online-Chorus-Android) 。
+声网已在 GitHub 提供了 Android 和 iOS 平台的 [实现代码](https://github.com/AgoraIO-Community/Agora-Online-Chorus/tree/master/Agora-Online-Chorus) 。
 
 
 ## 集成方法
